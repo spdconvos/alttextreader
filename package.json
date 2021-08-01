@@ -1,0 +1,25 @@
+{
+  "name": "alttextwebapp",
+  "version": "0.0.1",
+  "description": "An alt text reader that doesn't require a twitter account.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/spdconvos/alttextwebapp.git"
+  },
+  "keywords": [
+    "alt",
+    "text",
+    "twitter",
+    "webapp"
+  ],
+  "author": "TechBlocSEA Contributors",
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/spdconvos/alttextwebapp/issues"
+  },
+  "homepage": "https://github.com/spdconvos/alttextwebapp#readme"
+}
