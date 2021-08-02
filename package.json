@@ -23,6 +23,7 @@
   },
   "homepage": "https://github.com/spdconvos/alttextwebapp#readme",
   "dependencies": {
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "twitter": "^1.7.1"
   }
 }
