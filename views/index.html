@@ -21,7 +21,7 @@
         </div>
         <div class="body">
             <div class="input">
-                <input type="text" name="link_input" id="link_input" placeholder="twitter.com/Twitter/status/1416061700672040964" required aria-required="true" pattern="(?:https?:\/\/)?(?:[A-z0-9]*.)?twitter.com\/[A-z]*\/status\/[0-9]*">
+                <input type="url" name="link_input" id="link_input" placeholder="twitter.com/Twitter/status/1416061700672040964" required aria-required="true" pattern="(http(s)?:\/\/)?(www\.)?twitter\.com\/[A-z0-9]{4,}\/status\/[0-9]*(\?[A-z]\=[0-9]*)?" aria-labelledby="input_label">
                 <label for="link_input" id="input_label">
                     Enter the link to a tweet with media
                 </label>
