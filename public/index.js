@@ -15,6 +15,7 @@ let main = () => {
             out.removeChild(out.lastChild);
         }
 
+        //Check for empty input
         if (input.value.length == 0){
             let element = document.createElement("div");
             element.innerText = "Enter a link!"
@@ -23,6 +24,7 @@ let main = () => {
             return;
         }
 
+        //Build the request basically
         let options = {
             method: "GET",
             headers: {
@@ -30,9 +32,11 @@ let main = () => {
             }
         };
 
+        //Async fetch from the server
         fetch('/alttext?' + new URLSearchParams({
             link: input.value
         }), options).then(resp => resp.json()).then(json => {
+            //Check for errors
             if (json.hasOwnProperty("errors")){
                 for (let entry of json.errors){
                     let element = document.createElement("div");
@@ -41,7 +45,9 @@ let main = () => {
                     out.appendChild(element);
                 }
             }
-                
+            
+            //Go through all images and create elements for them
+            //Could probably make it so all images decode at the same time instead, but shrug
             for (let image of json.images){
                 let container = document.createElement("div")
                 container.className = "image_container"
@@ -70,13 +76,14 @@ let main = () => {
         }).catch(err => console.log(err));
     };
 
+    //Add event handlers
     send.addEventListener("click", sendHandler);
     input.addEventListener("keyup", e => {
         if (e.key === "Enter") sendHandler(e);
     });
     clear.addEventListener("click", e => {
         e.preventDefault();
-        
+
         //Clear the output
         while(out.lastChild) {
             out.removeChild(out.lastChild);
@@ -84,4 +91,5 @@ let main = () => {
     });
 }
 
+//Wait for shit to load, i hate the internet
 document.addEventListener("DOMContentLoaded", main);
