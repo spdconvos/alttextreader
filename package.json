@@ -3,7 +3,9 @@
   "version": "0.0.1",
   "description": "An alt text reader that doesn't require a twitter account.",
   "main": "app.js",
-  "engines": {"node": "14.x"},
+  "engines": {
+    "node": "14.x"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node -r dotenv/config app.js"
