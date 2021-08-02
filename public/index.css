@@ -1,0 +1,175 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;700&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  font-family: 'Roboto', sans-serif;
+  color: #fff;
+  text-align: center;
+}
+
+body {
+  background: #000;
+  height: 100vh;
+  width: 100vw;
+  display: -ms-grid;
+  display: grid;
+  place-content: center;
+  overflow-y: hidden;
+}
+
+.main {
+  background: #222;
+  padding: 1em 3em 1em 3em;
+  border-radius: 2px;
+  overflow-y: auto;
+}
+
+.header {
+  padding-bottom: 1.5em;
+}
+
+.title {
+  font-size: larger;
+  font-weight: 700;
+}
+
+.description {
+  font-size: medium;
+  font-weight: 300;
+}
+
+.input {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 4fr 1fr;
+      grid-template-columns: 4fr 1fr;
+  -ms-grid-rows: 2.5em 2em;
+      grid-template-rows: 2.5em 2em;
+  grid-row-gap: 2px;
+  grid-column-gap: 3px;
+}
+
+#link_input:invalid {
+  border: 1px solid #ff9999;
+}
+
+#link_input:focus:invalid {
+  border: 1px solid #000;
+}
+
+#link_input:placeholder-shown:invalid {
+  border: 1px solid #000;
+}
+
+#link_input {
+  -ms-grid-row: 1;
+  grid-row: 1;
+  -ms-grid-column: 1;
+  grid-column: 1;
+  background: #444;
+  border: 1px solid #000;
+  padding: 3px;
+  color: #ccc;
+  text-align: left;
+}
+
+::-webkit-input-placeholder {
+  color: #aaa;
+  text-align: left;
+}
+
+:-ms-input-placeholder {
+  color: #aaa;
+  text-align: left;
+}
+
+::-ms-input-placeholder {
+  color: #aaa;
+  text-align: left;
+}
+
+::placeholder {
+  color: #aaa;
+  text-align: left;
+}
+
+.btn {
+  color: #fff;
+  background: #444;
+  border: 1px solid #000;
+  padding: 0 3px 0 3px;
+}
+
+#post {
+  -ms-grid-row: 1;
+  grid-row: 1;
+  -ms-grid-column: 2;
+  grid-column: 2;
+}
+
+#clear {
+  -ms-grid-row: 2;
+  grid-row: 2;
+  -ms-grid-column: 2;
+  grid-column: 2;
+}
+
+.btn:hover {
+  background: #4c4c4c;
+}
+
+.btn:active {
+  background: #373737;
+}
+
+#input_label {
+  font-size: .8em;
+  -ms-grid-column: 1;
+  grid-column: 1;
+  -ms-grid-row: 2;
+  grid-row: 2;
+  color: #ccc;
+  font-weight: 100;
+}
+
+#out {
+  margin-top: 1em;
+  -webkit-transition: margin 1s linear;
+  transition: margin 1s linear;
+}
+
+#out:not(:empty) {
+  border-top: #444 dotted 2px;
+}
+
+.error {
+  margin: 10px 0 10px 0;
+  color: #ff9999;
+  border-bottom: #444 dotted 2px;
+}
+
+.image {
+  max-width: 30vw;
+  max-height: 30vh;
+}
+
+.image_container {
+  margin-top: 10px;
+  padding-bottom: 10px;
+  width: 100%;
+  border-bottom: #444 dotted 2px;
+}
+
+.alt {
+  font-weight: 300;
+  font-size: 0.9em;
+}
+
+.image.no_alt {
+  border: #ff9999 solid 3px;
+}
+
+.alt.no_alt {
+  color: #ff9999;
+}
+/*# sourceMappingURL=index.css.map */
