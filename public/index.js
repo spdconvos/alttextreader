@@ -1,5 +1,10 @@
 /** @format */
 
+//Check fetch support
+if (!fetch) {
+    alert("Your browser is not supported");
+}
+
 let main = () => {
     //The main function that does everything
     //Have to grab some nodes, fuck jQuery
