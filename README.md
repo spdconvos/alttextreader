@@ -5,12 +5,12 @@ An alt text reader that doesn't require a twitter account.
 ## Bug reporting
 Please use GitHub issues to submit bugs. Include browser console logs if possible. Please also include what platform you're using, and what browser. Any and all information will be helpful and makes it more likely to be fixed. Also be understanding and patient, this app is maintained by a single person (for now).
 
-## Current support
+## Current (tested) support
 - Chrome 92
     - Should work on chromium based browsers, no guarantees
+- Edge 92+
 - ❌ IE
 - Firefox (under review due to a bug report)
-- Edge (under review)
 
 There are no polyfills used, if your browser version does not support the fetch JS API, it is not supported (for now).
 
