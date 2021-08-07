@@ -6,6 +6,13 @@ let main = () => {
     const send = document.getElementById("post");
     const clear = document.getElementById("clear");
 
+    let errorHandler = err => {
+        console.group();
+            console.error(err)
+            console.log("Please report a bug at https://github.com/spdconvos/alttextreader/");
+        console.groupEnd()
+    }
+
     let sendHandler = event => {
         //Send handler, handles sending stuff to the server
         event.preventDefault();
@@ -77,12 +84,13 @@ let main = () => {
                         container.removeChild(img);
                         out.appendChild(container);
                     } else {
-                        console.error(e);
-                        console.log("Please report a bug at https://github.com/spdconvos/alttextreader/")
+                        errorHandler(err);
                     }
                 });
             }
-        }).catch(err => console.error(err));
+        }).catch(err => {
+            errorHandler(err);
+        });
     };
 
     //Add event handlers
