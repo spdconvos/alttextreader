@@ -11,8 +11,7 @@ Please use GitHub issues to submit bugs. Include browser console logs if possibl
 - Chrome 92
   - Should work on chromium based browsers, no guarantees
 - Edge 92+
-- ❌ IE
-- Firefox (under review due to a bug report)
+- Firefox 90
 
 There are no polyfills used, if your browser version does not support the fetch JS API, it is not supported (for now).
 
