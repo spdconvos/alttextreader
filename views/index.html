@@ -1,41 +1,53 @@
+<!-- @format -->
+
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Alt Text Reader</title>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Alt Text Reader</title>
 
-    <link rel="stylesheet" href="/index.css" type="text/css" />
-    <script src="/index.js"></script>
-  </head>
-  <body>
-    <div class="main">
-      <div class="header">
-        <div class="title">Alt Text Reader</div>
-        <div class="description">
-          Helps read alt text on twitter without needing an account
+        <link rel="stylesheet" href="/index.css" type="text/css" />
+        <script src="/index.js"></script>
+    </head>
+    <body>
+        <div class="main">
+            <div class="header">
+                <div class="title">Alt Text Reader</div>
+                <div class="description">
+                    Helps read alt text on twitter without needing an account
+                </div>
+            </div>
+            <div class="body">
+                <div class="input">
+                    <input
+                        type="url"
+                        name="link_input"
+                        id="link_input"
+                        placeholder="twitter.com/Twitter/status/1416061700672040964"
+                        pattern="(http(s)?://)?(www.)?twitter.com/[A-z0-9]{4,}/status/[0-9]*(\?[A-z]=[0-9]*)?"
+                        title="A twitter status link"
+                        aria-labelledby="input_label"
+                        required
+                    />
+                    <label for="link_input" id="input_label">
+                        Enter the link to a tweet with media
+                    </label>
+                    <input
+                        type="button"
+                        value="Get alt text"
+                        id="post"
+                        class="btn"
+                    />
+                    <input
+                        type="button"
+                        value="Clear screen"
+                        id="clear"
+                        class="btn"
+                    />
+                </div>
+                <div id="out"></div>
+            </div>
         </div>
-      </div>
-      <div class="body">
-        <div class="input">
-          <input
-            type="url"
-            name="link_input"
-            id="link_input"
-            placeholder="twitter.com/Twitter/status/1416061700672040964"
-            pattern="(http(s)?://)?(www.)?twitter.com/[A-z0-9]{4,}/status/[0-9]*(\?[A-z]=[0-9]*)?"
-            title="A twitter status link"
-            aria-labelledby="input_label"
-            required
-          />
-          <label for="link_input" id="input_label">
-            Enter the link to a tweet with media
-          </label>
-          <input type="button" value="Get alt text" id="post" class="btn" />
-          <input type="button" value="Clear screen" id="clear" class="btn" />
-        </div>
-        <div id="out"></div>
-      </div>
-    </div>
-  </body>
+    </body>
 </html>

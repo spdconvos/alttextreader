@@ -1,3 +1,5 @@
+<!-- @format -->
+
 # Twitter Alt Text Reader Webapp
 
 An alt text reader that doesn't require a twitter account.
@@ -8,10 +10,10 @@ Please use GitHub issues to submit bugs. Include browser console logs if possibl
 
 ## Current (tested) support
 
-- Chrome 92
-  - Should work on chromium based browsers, no guarantees
-- Edge 92+
-- Firefox 90
+-   Chrome 92
+    -   Should work on chromium based browsers, no guarantees
+-   Edge 92+
+-   Firefox 90
 
 There are no polyfills used, if your browser version does not support the fetch JS API, it is not supported (for now).
 
