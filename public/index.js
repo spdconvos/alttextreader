@@ -71,9 +71,18 @@ let main = () => {
 
                 img.decode().then(() => {
                     out.appendChild(container)
-                })
+                }).catch(e => {
+                    if(e.name == "EncodingError") {
+                        console.log("Turn off strict content blocking for images!");
+                        container.removeChild(img);
+                        out.appendChild(container);
+                    } else {
+                        console.error(e);
+                        console.log("Please report a bug at https://github.com/spdconvos/alttextreader/")
+                    }
+                });
             }
-        }).catch(err => console.log(err));
+        }).catch(err => console.error(err));
     };
 
     //Add event handlers
