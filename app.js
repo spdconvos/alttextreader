@@ -1,5 +1,11 @@
 const express = require('express');
 const Twitter = require('twitter-lite');
+const fs = require('fs');
+const jsonParser = require('body-parser').json();
+
+if (!fs.existsSync(__dirname + "/error_logs")){
+    fs.mkdirSync(__dirname + "/error_logs");
+}
 
 const app = express();
 app.use(express.static('public'));
@@ -69,6 +75,20 @@ app.get("/alttext", (req, resp) => {
     }).catch(err => {
         console.error("Error getting tweet", {err});
     });
+});
+
+app.post("/error", jsonParser, (req, resp) => {
+    let time = new Date();
+    let str = JSON.stringify({
+        "time": time.toLocaleString,
+        "user agent": req.headers["user-agent"],
+        "error": req.body
+    }, null, 4);
+    let file = `${__dirname}/error_logs/error_${time.toISOString().replace(/[:\-\.]/g, "_")}.json`;
+
+    fs.writeFile(file, str, err => {
+        if (err) console.error(err); 
+    })
 });
 
 const listener = app.listen(process.env.PORT, () => {

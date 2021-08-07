@@ -7,10 +7,30 @@ let main = () => {
     const clear = document.getElementById("clear");
 
     let errorHandler = err => {
-        console.group();
+        console.group("%cError", "color:red");
             console.error(err)
-            console.log("Please report a bug at https://github.com/spdconvos/alttextreader/");
+            console.log("%cPlease report a bug at https://github.com/spdconvos/alttextreader/", "color:blue");
         console.groupEnd()
+
+        let errorDuplication = {}
+        for (let k in err) errorDuplication[k]=err[k];
+
+        let options = {
+            method: "POST",
+            body: JSON.stringify({
+                "code": err.code
+            }),
+            headers: {
+                'content-type': "application/json"
+            }
+        }
+
+        fetch("/error", options).catch(err => {
+            console.error(
+                "Error in the error handler handling an error",
+                err
+            );
+        });
     }
 
     let sendHandler = event => {
@@ -78,8 +98,8 @@ let main = () => {
 
                 img.decode().then(() => {
                     out.appendChild(container)
-                }).catch(e => {
-                    if(e.name == "EncodingError") {
+                }).catch(err => {
+                    if(err.name == "EncodingError") {
                         console.log("Turn off strict content blocking for images!");
                         container.removeChild(img);
                         out.appendChild(container);
