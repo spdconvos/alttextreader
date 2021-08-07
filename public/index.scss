@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;700&display=swap");
 
 $dark_bg: #000;
 $light_bg: #222;
@@ -9,148 +9,148 @@ $dark_text: #ccc;
 $light_text: #fff;
 $error_text: rgb(255, 153, 153);
 
-*{
-    margin:0;
-    padding:0;
-    font-family: 'Roboto', sans-serif;
-    color: $light_text;
-    text-align: center;
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Roboto", sans-serif;
+  color: $light_text;
+  text-align: center;
 }
 
-body{
-    background: $dark_bg;
-    height: 100vh;
-    width: 100vw;
-    display: grid;
-    place-content: center;
-    overflow-y: hidden;
+body {
+  background: $dark_bg;
+  height: 100vh;
+  width: 100vw;
+  display: grid;
+  place-content: center;
+  overflow-y: hidden;
 }
 
-.main{
-    background: $light_bg;
-    padding: 1em 3em 1em 3em;
-    border-radius: 2px;
-    overflow-y: auto;
+.main {
+  background: $light_bg;
+  padding: 1em 3em 1em 3em;
+  border-radius: 2px;
+  overflow-y: auto;
 }
 
-.header{
-    padding-bottom: 1.5em;
+.header {
+  padding-bottom: 1.5em;
 }
 
-.title{
-    font-size: larger;
-    font-weight: 700;
+.title {
+  font-size: larger;
+  font-weight: 700;
 }
 
-.description{
-    font-size: medium;
-    font-weight: 300;
+.description {
+  font-size: medium;
+  font-weight: 300;
 }
 
-.input{
-    display: grid;
-    grid-template-columns: 4fr 1fr;
-    grid-template-rows: 2.5em 2em;
-    grid-row-gap: 2px;
-    grid-column-gap: 3px;
+.input {
+  display: grid;
+  grid-template-columns: 4fr 1fr;
+  grid-template-rows: 2.5em 2em;
+  grid-row-gap: 2px;
+  grid-column-gap: 3px;
 }
 
-#link_input:invalid{
-    border: 1px solid $error_text;
+#link_input:invalid {
+  border: 1px solid $error_text;
 }
 
-#link_input:focus:invalid{
-    border: 1px solid $dark_bg;
+#link_input:focus:invalid {
+  border: 1px solid $dark_bg;
 }
 
-#link_input:placeholder-shown:invalid{
-    border: 1px solid $dark_bg;
+#link_input:placeholder-shown:invalid {
+  border: 1px solid $dark_bg;
 }
 
-#link_input{
-    grid-row: 1;
-    grid-column: 1;
-    background: $lighter_bg;
-    border: 1px solid $dark_bg;
-    padding: 3px;
-    color: $dark_text;
-    text-align: left;
+#link_input {
+  grid-row: 1;
+  grid-column: 1;
+  background: $lighter_bg;
+  border: 1px solid $dark_bg;
+  padding: 3px;
+  color: $dark_text;
+  text-align: left;
 }
 
-::placeholder{
-    color: $darker_text;
-    text-align: left;
+::placeholder {
+  color: $darker_text;
+  text-align: left;
 }
 
-.btn{
-    color: $light_text;
-    background: $lighter_bg;
-    border: 1px solid $dark_bg;
-    padding: 0 3px 0 3px;
+.btn {
+  color: $light_text;
+  background: $lighter_bg;
+  border: 1px solid $dark_bg;
+  padding: 0 3px 0 3px;
 }
 
-#post{
-    grid-row: 1;
-    grid-column: 2;
+#post {
+  grid-row: 1;
+  grid-column: 2;
 }
 
-#clear{
-    grid-row: 2;
-    grid-column: 2;
+#clear {
+  grid-row: 2;
+  grid-column: 2;
 }
 
-.btn:hover{
-    background: lighten($color: $lighter_bg, $amount: 3);
+.btn:hover {
+  background: lighten($color: $lighter_bg, $amount: 3);
 }
 
-.btn:active{
-    background: darken($color: $lighter_bg, $amount: 5);
+.btn:active {
+  background: darken($color: $lighter_bg, $amount: 5);
 }
 
-#input_label{
-    font-size: .8em;
-    grid-column: 1;
-    grid-row: 2;
-    color: $dark_text;
-    font-weight: 100;
+#input_label {
+  font-size: 0.8em;
+  grid-column: 1;
+  grid-row: 2;
+  color: $dark_text;
+  font-weight: 100;
 }
 
-#out{
-    margin-top: 1em;
-    transition: margin 1s linear;
+#out {
+  margin-top: 1em;
+  transition: margin 1s linear;
 }
 
-#out:not(:empty){
-    border-top: $lighter_bg dotted 2px;
+#out:not(:empty) {
+  border-top: $lighter_bg dotted 2px;
 }
 
-.error{
-    margin: 10px 0 10px 0;
-    color: $error_text;
-    border-bottom: $lighter_bg dotted 2px;
+.error {
+  margin: 10px 0 10px 0;
+  color: $error_text;
+  border-bottom: $lighter_bg dotted 2px;
 }
 
-.image{
-    max-width: 30vw;
-    max-height: 30vh;
+.image {
+  max-width: 30vw;
+  max-height: 30vh;
 }
 
-.image_container{
-    margin-top: 10px;
-    padding-bottom: 10px;
-    width: 100%;
-    border-bottom: $lighter_bg dotted 2px;;
+.image_container {
+  margin-top: 10px;
+  padding-bottom: 10px;
+  width: 100%;
+  border-bottom: $lighter_bg dotted 2px;
 }
 
-.alt{
-    font-weight: 300;
-    font-size: 0.9em;
+.alt {
+  font-weight: 300;
+  font-size: 0.9em;
 }
 
-.image.no_alt{
-    border: $error_text solid 3px;
+.image.no_alt {
+  border: $error_text solid 3px;
 }
 
-.alt.no_alt{
-    color: $error_text;
+.alt.no_alt {
+  color: $error_text;
 }
