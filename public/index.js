@@ -93,7 +93,7 @@ let main = () => {
                     container.className = "image_container";
 
                     let img = document.createElement("img");
-                    img.src = image.src;
+                    img.src = image.uri;
                     img.alt = image.text;
                     img.className = "image";
 

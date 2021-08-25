@@ -4,6 +4,8 @@ const express = require("express");
 const Twitter = require("twitter-lite");
 const fs = require("fs");
 const jsonParser = require("body-parser").json();
+const fetch = require("node-fetch");
+const type = require("file-type").fromBuffer;
 
 if (!fs.existsSync(__dirname + "/error_logs")) {
     fs.mkdirSync(__dirname + "/error_logs");
@@ -40,7 +42,7 @@ app.get("/", (req, resp) => {
     resp.sendFile(__dirname + "/views/index.html");
 });
 
-app.get("/alttext", (req, resp) => {
+app.get("/alttext", async (req, resp) => {
     let json = { images: [] };
     let id = req.query.link.match(/(?<=status\/)\d*/);
     if (id == null) {
@@ -57,7 +59,7 @@ app.get("/alttext", (req, resp) => {
             include_entities: true,
             tweet_mode: "extended",
         })
-        .then(tweet => {
+        .then(async tweet => {
             console.log(`Getting tweet with id: ${id[0]}`);
             if (tweet.extended_entities.hasOwnProperty("media")) {
                 for (let i = 0; i < tweet.extended_entities.media.length; i++) {
@@ -67,7 +69,33 @@ app.get("/alttext", (req, resp) => {
 
                     let obj = {};
 
-                    obj.src = tweet.extended_entities.media[i].media_url_https;
+                    let img = await fetch(
+                        tweet.extended_entities.media[i].media_url_https
+                    )
+                        .then(imgResponse => {
+                            return imgResponse.arrayBuffer();
+                        })
+                        .then(async arrayBuffer => {
+                            let buffer = Buffer.from(arrayBuffer);
+                            let mime = (await type(buffer)).mime;
+                            let data = buffer.toString("base64");
+                            obj.uri = `data:${mime};base64,${data}`;
+                        })
+                        .catch(err => {
+                            console.error(
+                                `Error making URI, defaulting to twitter: ${{
+                                    err,
+                                }}`
+                            );
+                            obj.uri =
+                                tweet.extended_entities.media[
+                                    i
+                                ].media_url_https;
+                        });
+                    /* let buffer = Buffer.from(await img.arrayBuffer())
+                    let data = buffer.toString('base64');
+                    let mime = (await type(buffer)).mime
+                    obj.uri = `data:${mime};base64,${data}` */
                     obj.text = tweet.extended_entities.media[i].ext_alt_text;
 
                     json.images.push(obj);
@@ -81,11 +109,11 @@ app.get("/alttext", (req, resp) => {
             resp.json(json);
         })
         .catch(err => {
-            console.error("Error getting tweet", { err });
+            console.error(`Error getting tweet: ${{ err }}`);
         });
 });
 
-app.post("/error", jsonParser, (req, resp) => {
+app.post("/error", jsonParser, async (req, resp) => {
     let time = new Date();
     let str = JSON.stringify(
         {
