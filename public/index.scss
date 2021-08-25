@@ -156,3 +156,16 @@ body {
 .alt.no_alt {
     color: $error_text;
 }
+
+a {
+    text-decoration: underline;
+}
+
+a:hover {
+    color: $dark_text;
+    text-decoration: none;
+}
+
+a:active {
+    color: $darker_text;
+}
