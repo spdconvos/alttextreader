@@ -79,7 +79,7 @@ app.get("/alttext", async (req, resp) => {
                             let buffer = Buffer.from(arrayBuffer);
                             let mime = (await type(buffer)).mime;
                             let data = buffer.toString("base64");
-                            obj.uri = `data:${mime};base64,${data}`;
+                            obj.src = `data:${mime};base64,${data}`;
                         })
                         .catch(err => {
                             console.error(
@@ -92,10 +92,6 @@ app.get("/alttext", async (req, resp) => {
                                     i
                                 ].media_url_https;
                         });
-                    /* let buffer = Buffer.from(await img.arrayBuffer())
-                    let data = buffer.toString('base64');
-                    let mime = (await type(buffer)).mime
-                    obj.uri = `data:${mime};base64,${data}` */
                     obj.text = tweet.extended_entities.media[i].ext_alt_text;
 
                     json.images.push(obj);
