@@ -1,14 +1,18 @@
 on:
-  pull_request:
-    types: [closed]
+  push:
+    branches:
+      - "main"
 
 jobs:
   deploy:
-    if: github.event.pull_request.merged == true
     runs-on: ubuntu-latest
     steps:
-    - name: deploy
-      run: |
-        git checkout main
-        git remote add deploy ${{ secrets.glitch_git_URL }}
-        git push deploy main:main
+      - uses: actions/checkout@v1
+      - name: deploy
+        run: |
+          git config --global user.name 'auto deploy'
+          git config --global user.email 'spdconvos@users.noreply.github.com'
+          git remote set-url origin https://github.com/$GITHUB_REPOSITORY
+          git checkout $GITHUB_HEAD_REF
+          git remote add deploy ${{ secrets.glitch_git_URL }}
+          git push deploy main:main
