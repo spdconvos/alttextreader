@@ -15,4 +15,4 @@ jobs:
           git remote set-url origin https://github.com/$GITHUB_REPOSITORY
           git checkout $GITHUB_HEAD_REF
           git remote add deploy ${{ secrets.glitch_git_URL }}
-          git push -u deploy
+          git push -f deploy HEAD:main
