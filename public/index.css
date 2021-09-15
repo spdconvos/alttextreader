@@ -51,7 +51,7 @@ body {
 }
 
 #link_input:invalid {
-  border: 1px solid #ff9999;
+  border: 1px solid #ff5050;
 }
 
 #link_input:focus:invalid {
@@ -75,22 +75,22 @@ body {
 }
 
 ::-webkit-input-placeholder {
-  color: #aaa;
+  color: #888;
   text-align: left;
 }
 
 :-ms-input-placeholder {
-  color: #aaa;
+  color: #888;
   text-align: left;
 }
 
 ::-ms-input-placeholder {
-  color: #aaa;
+  color: #888;
   text-align: left;
 }
 
 ::placeholder {
-  color: #aaa;
+  color: #888;
   text-align: left;
 }
 
@@ -145,7 +145,7 @@ body {
 
 .error {
   margin: 10px 0 10px 0;
-  color: #ff9999;
+  color: #ff5050;
   border-bottom: #444 dotted 2px;
 }
 
@@ -167,11 +167,11 @@ body {
 }
 
 .image.no_alt {
-  border: #ff9999 solid 3px;
+  border: #ff5050 solid 3px;
 }
 
 .alt.no_alt {
-  color: #ff9999;
+  color: #ff5050;
 }
 
 a {
@@ -184,6 +184,6 @@ a:hover {
 }
 
 a:active {
-  color: #aaa;
+  color: #888;
 }
 /*# sourceMappingURL=index.css.map */
