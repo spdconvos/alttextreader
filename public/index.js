@@ -148,6 +148,7 @@ let main = () => {
         }
     });
 
+    //If we're on a status page, act like we already have a request to make.
     if (window.location.pathname == "/results") {
         sendHandler(
             null,
