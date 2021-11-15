@@ -132,6 +132,16 @@ let main = () => {
             .catch(err => {
                 errorHandler(err);
             });
+
+        //Create the url for this results page
+        let url = new URL(window.location);
+        url.pathname = "/results";
+        url.searchParams.set(
+            "id",
+            input.value.length != 0 ? input.value.split("/").at(-1) : statusID
+        );
+        //Push it to the history
+        window.history.pushState({}, "", url);
     };
 
     //Add event handlers
