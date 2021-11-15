@@ -138,7 +138,12 @@ let main = () => {
         url.pathname = "/results";
         url.searchParams.set(
             "id",
-            input.value.length != 0 ? input.value.split("/").at(-1) : statusID
+            input.value.length != 0
+                ? input.value
+                      .split("/")
+                      .at(-1)
+                      .replace(/\?s=\d+/, "")
+                : statusID
         );
         //Push it to the history
         window.history.pushState({}, "", url);
