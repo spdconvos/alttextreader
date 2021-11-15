@@ -151,7 +151,7 @@ let main = () => {
     if (window.location.pathname == "/results") {
         sendHandler(
             null,
-            parseInt(new URLSearchParams(window.location.search).get("id"))
+            new URLSearchParams(window.location.search).get("id")
         );
     }
 };
