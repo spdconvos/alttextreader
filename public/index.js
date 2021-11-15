@@ -139,10 +139,7 @@ let main = () => {
         url.searchParams.set(
             "id",
             input.value.length != 0
-                ? input.value
-                      .split("/")
-                      .at(-1)
-                      .replace(/\?s=\d+/, "")
+                ? input.value.split("/").at(-1).split("?").at(0)
                 : statusID
         );
         //Push it to the history
