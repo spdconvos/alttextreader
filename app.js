@@ -42,10 +42,19 @@ app.get("/", (req, resp) => {
     resp.sendFile(__dirname + "/views/index.html");
 });
 
+app.get("/results", (req, resp) => {
+    console.dir(req);
+    resp.sendFile(__dirname + "/views/index.html");
+});
+
 app.get("/alttext", async (req, resp) => {
     let json = { images: [] };
-    let id = req.query.link.match(/(?<=status\/)\d*/);
+    let id = req.query.link.match(/(?<=status\/)\d+/);
     if (id == null) {
+        id = req.query.link.match(/\d+/);
+    }
+    if (id == null) {
+        console.log(req.query.link, typeof req.query.link);
         json.errors = ["No ID found"];
         resp.json(json);
         return;
@@ -105,7 +114,8 @@ app.get("/alttext", async (req, resp) => {
             resp.json(json);
         })
         .catch(err => {
-            console.error(`Error getting tweet: ${{ err }}`);
+            console.error(`Error getting tweet:`);
+            console.dir(err);
         });
 });
 
