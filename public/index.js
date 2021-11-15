@@ -40,9 +40,9 @@ let main = () => {
         });
     };
 
-    let sendHandler = event => {
+    let sendHandler = (event, statusID) => {
         //Send handler, handles sending stuff to the server
-        event.preventDefault();
+        if (!!event) event.preventDefault();
 
         //Clear the output
         while (out.lastChild) {
@@ -50,7 +50,7 @@ let main = () => {
         }
 
         //Check for empty input
-        if (input.value.length == 0) {
+        if (input.value.length == 0 && statusID === undefined) {
             let element = document.createElement("div");
             element.innerText = "Enter a link!";
             element.className = "error";
@@ -70,7 +70,7 @@ let main = () => {
         fetch(
             "/alttext?" +
                 new URLSearchParams({
-                    link: input.value,
+                    link: input.value.length != 0 ? input.value : statusID,
                 }),
             options
         )
@@ -147,6 +147,13 @@ let main = () => {
             out.removeChild(out.lastChild);
         }
     });
+
+    if (window.location.pathname == "/results") {
+        sendHandler(
+            null,
+            parseInt(new URLSearchParams(window.location.search).get("id"))
+        );
+    }
 };
 
 //Wait for shit to load, i hate the internet
