@@ -19,7 +19,7 @@ There are no polyfills used, if your browser version does not support the fetch 
 
 ## License
 
-Unlicensed. Do as you wish with any component. As long as you don't steal my API keys. If it's useful donate some money to a bail fund or read a zine.
+[Available in repository](./LICENSE)
 
 ## Contributions
 
