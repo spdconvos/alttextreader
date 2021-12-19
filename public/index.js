@@ -1,8 +1,35 @@
 /** @format */
 
+let XHRFill = (url, options) => {
+    //A short, simple fetch polyfill. It doesn't need too many options
+    //Fetch is promise based so this needs to be too
+    return new Promise((resolve, reject) => {
+        let req = new XMLHttpRequest();
+        req.open(options.hasOwnProperty("method") ? options["method"] : "GET", url);
+
+        //End the promise on events
+        req.addEventListener("error", e => {reject(e)});
+        req.addEventListener("abort", e => {reject(e)});
+        req.addEventListener("load", e =>  {resolve(req.response)});
+
+        //Add headers and body
+        if (options.hasOwnProperty("headers")) {
+            for (const [key, value] of Object.entries(options["headers"])) {
+                req.setRequestHeader(key, value);
+            }
+        }
+        req.send(options.hasOwnProperty("body") ? options["body"] : null);
+    })
+}
+
 //Check fetch support
 if (!fetch) {
-    alert("Your browser is not supported");
+    if (!Promise) {
+        alert("Your browser is unsupported, like really unsupported")
+    }
+    else {
+        fetch = XHRFill
+    }
 }
 
 let main = () => {
@@ -28,7 +55,7 @@ let main = () => {
                 code: err.code,
             }),
             headers: {
-                "content-type": "application/json",
+                "Content-Type": "application/json",
             },
         };
 
@@ -60,6 +87,7 @@ let main = () => {
             method: "GET",
             headers: {
                 "Content-Type": "text/plain",
+                "Accept": "application/json" 
             },
         };
 
