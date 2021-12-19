@@ -22,9 +22,6 @@ let main = () => {
         );
         console.groupEnd();
 
-        let errorDuplication = {};
-        for (let k in err) errorDuplication[k] = err[k];
-
         let options = {
             method: "POST",
             body: JSON.stringify({
@@ -124,6 +121,7 @@ let main = () => {
                                 container.removeChild(img);
                                 out.appendChild(container);
                             } else {
+                                container.innerHTML = "Please check your browser's console!"
                                 errorHandler(err);
                             }
                         });
