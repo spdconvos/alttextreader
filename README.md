@@ -1,8 +1,6 @@
 # Twitter Alt Text Reader Webapp
 
-An alt text reader that doesn't require a twitter account.
-
-[live version on glitch.com](https://alt-text-reader.glitch.me/)
+An alt text reader that doesn't require a twitter account. No longer maintained since twitter has rolled out a feature to check alt text in app.
 
 ## Bug reporting
 
